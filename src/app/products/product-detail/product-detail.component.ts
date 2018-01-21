@@ -17,12 +17,15 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     const id = +this._route.snapshot.paramMap.get('id');
     this.pageTitle += `: ${id}`;
-    this._productService.getProducts()
-      .subscribe(
-      products => this.product = products.find(x => x.productId === id),
-      error => <any>this.errorMessage
-      );
+    this.getProduct(id);
   }
+
+  private getProduct(id: number) {
+    this._productService.getProduct(id).subscribe(
+      product => this.product = product,
+      error => this.errorMessage = <any>error);
+  }
+
   public onBack(): void{
     this._router.navigate(['products']);
   }
