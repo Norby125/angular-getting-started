@@ -3,7 +3,8 @@ import { IProduct } from './product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do'
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/first';
 import { HttpErrorResponse } from '@angular/common/http/src/response';
 @Injectable()
 export class ProductService {
